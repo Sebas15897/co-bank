@@ -25,7 +25,7 @@ Contraseña => 123456.
 
 #Tools
 - Para este proyecto se utilizaron las siguientes librerías.
-- Angular 5.
+- Boostrap 5.
 - Rxjs.
 - Ngxs.
 - Angular Material.
