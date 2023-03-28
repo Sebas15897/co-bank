@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  url: '',
-  base_url: '',
+  url: 'https://rickandmortyapi.com/',
+  base_url: 'https://rickandmortyapi.com/api/',
 };
 
 /*
