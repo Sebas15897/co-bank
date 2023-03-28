@@ -1,6 +1,8 @@
+import { IloginData } from "../../interfaces/auth.interface";
+
 export class LoginAction {
   static readonly type = '[Auth] Login';
-  constructor() {}
+  constructor(public payload: IloginData) {}
 }
 
 export class LogoutAction {

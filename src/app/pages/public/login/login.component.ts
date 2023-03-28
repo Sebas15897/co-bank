@@ -35,12 +35,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login() {
+    const formData = Object.assign({}, this.formLogin.getRawValue());
     this.store
-      .dispatch(new LoginAction())
-      .pipe(takeUntil(this.destroy))
-      .subscribe(() => {
-        this.router.navigateByUrl('/private');
-      });
+      .dispatch(new LoginAction(formData));
   }
 
   get invalidForm(): boolean {

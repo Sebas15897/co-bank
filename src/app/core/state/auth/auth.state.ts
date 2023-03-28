@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { tap } from 'rxjs';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { SweetAlertHelper } from '../../helpers/sweet-alert.helper';
-import { IUser } from '../../interfaces/user.interface';
 import { AuthService } from '../../services/auth.service';
 import { ShowSideBarAction } from '../layout/layout.actions';
 import {
@@ -14,14 +12,14 @@ import { LoginAction, LogoutAction } from './auth.actions';
 
 export interface AuthStateModel {
   token: string | null;
-  user: IUser;
+  user: any;
 }
 
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
     token: null,
-    user: {} as IUser,
+    user: {} as any,
   },
 })
 
@@ -33,35 +31,39 @@ export class AuthState {
 
   constructor(
     private authService: AuthService,
-    private sweetAlertHelper: SweetAlertHelper
+    private sweetAlertHelper: SweetAlertHelper,
+    private router: Router,
   ) {}
 
   @Action(LoginAction)
-  LoginAction(ctx: StateContext<AuthStateModel>) {
+  LoginAction(ctx: StateContext<AuthStateModel>, { payload }: LoginAction) {
     ctx.dispatch(new ShowLoadingAction());
-    return this.authService.login().pipe(
-      tap(
-        (result) => {
-          ctx.patchState({
-            token: result.name,
-            user: result,
-          });
-          ctx.dispatch(new ShowSideBarAction(true));
-          setTimeout(() => {
-            ctx.dispatch(new HideLoadingAction()).subscribe(() => {
-              this.sweetAlertHelper.createCustomAlert({
-                title: 'Bienvenido',
-                text: 'Ha iniciado sesión con exito.',
-                icon: 'success',
-              });
+    this.authService.login(payload).then((authData) => {
+      authData.user.getIdToken().then((token) => {
+        ctx.patchState({
+          token: token,
+          user: authData.user.email,
+        });
+        ctx.dispatch(new ShowSideBarAction(true));
+        setTimeout(() => {
+          ctx.dispatch(new HideLoadingAction()).subscribe(() => {
+            this.router.navigateByUrl('/private');
+            this.sweetAlertHelper.createCustomAlert({
+              title: 'Bienvenido',
+              text: 'Ha iniciado sesión con exito.',
+              icon: 'success',
             });
-          }, 2000);
-        },
-        (error) => {
-          ctx.dispatch(new HideLoadingAction());
-        }
-      )
-    );
+          });
+        }, 2000);
+      });
+    }).catch((error) => {
+      ctx.dispatch(new HideLoadingAction());
+      this.sweetAlertHelper.createCustomAlert({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+      });
+    });
   }
 
   @Action(LogoutAction)

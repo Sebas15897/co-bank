@@ -10,6 +10,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NGXS_PLUGINS } from '@ngxs/store';
 import { logoutPlugin } from './core/state/store-logout-plugin/store-logout-plugin';
 import { AgGridModule } from 'ag-grid-angular';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +24,8 @@ import { AgGridModule } from 'ag-grid-angular';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     AgGridModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
   ],
   providers: [
     AuthPublicGuard,

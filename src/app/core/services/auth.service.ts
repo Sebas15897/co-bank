@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { AppSettings } from '../app.settings';
+import { IloginData } from '../interfaces/auth.interface';
 import { ILoginResponse } from '../interfaces/response.interface';
 
 @Injectable({
@@ -11,11 +13,11 @@ export class AuthService {
   constructor(
     private httpClient: HttpClient,
     private appSettins: AppSettings,
+    private auth: Auth,
   ) {}
 
-  login() {
-    const url = this.appSettins.auth.urls.login;
-    return this.httpClient.get<ILoginResponse>(url);
+  login(payload: IloginData) {
+    return signInWithEmailAndPassword(this.auth, payload.email, payload.password);
   }
 
   logout() {}
