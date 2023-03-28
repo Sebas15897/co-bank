@@ -21,7 +21,7 @@ Contraseña => 123456.
 
 - Clonar este repositorio: `https://github.com/Sebas15897/nivelics-prueba.git`.
 - Instalar Node Modules: `npm install`.
-- Ejecutamos el proyecto: `npm start`.
+- Ejecutamos el proyecto: `ng serve`.
 
 #Tools
 - Para este proyecto se utilizaron las siguientes librerías.
