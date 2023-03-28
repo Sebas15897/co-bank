@@ -1,0 +1,31 @@
+<nav
+  class="sidebar sidebar-offcanvas side h-100 d-flex flex-column"
+  id="sidebar"
+>
+  <div class="row">
+    <div class="col-12 text-center pt-3 pb-4">
+      <img
+        src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"
+        width="70"
+        alt="app-user"
+      />
+      <h6 class="text-secondary pt-2">John Doe</h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 pt-2">
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel *ngFor="let menu of sideMenu">
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ menu.description }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item *ngFor="let child of menu.childs">
+            <mat-icon matListItemIcon>{{ child.icon }}</mat-icon>
+            <p class="menu-item-text text-primary">{{ child.description }}</p>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</nav>

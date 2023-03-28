@@ -1,0 +1,41 @@
+<div class="d-flex align-items-center h-100 bg-header">
+  <div class="px-4 ps-5 pb-2 py-2" *ngIf="viewSidebar">
+    <img src="https://www.nivelics.com/assets/images/logos/nivelics.svg" width="140" alt="Nivelics Logo">
+  </div>
+  <div class="px-1 ps-3 pb-2 ">
+    <button
+      (click)="showMenu()"
+      class="header-button text-secondary"
+      mat-icon-button
+      matTooltip="{{ viewSidebar ? 'Close' : 'Open' }}"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="header-title ps-3 mx-auto text-secondary">Dash Board</div>
+  <div class="me-2 pb-2">
+    <button
+      class="header-button text-secondary"
+      [matMenuTriggerFor]="menu"
+      mat-icon-button
+      matTooltip="Configuraciones"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <span>Mi perfil</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>settings</mat-icon>
+    <span>Configuración</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>close</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+</mat-menu>

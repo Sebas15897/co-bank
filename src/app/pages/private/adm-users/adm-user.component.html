@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-primary">Agregar nuevos usuarios</h2>
+    </div>
+    <div class="col-12">
+      <button mat-button>
+        <mat-icon>search</mat-icon>
+        Buscar
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="searchForm">
+        <div class="row">
+          <div [ngClass]="{ 'col-6': !search, 'col-7': search }">
+            <div class="mb-3">
+              <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" formControlName="name" />
+                <button
+                  *ngIf="search"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="resetName()"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+          <div [ngClass]="{ 'col-4': search, 'col-6': !search }">
+            <mat-form-field>
+              <mat-label>Tipo</mat-label>
+              <input matInput type="text" formControlName="type" />
+              <button
+                *ngIf="typesearch"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="resetType()"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row pb-4">
+    <div class="col-6 d-flex">
+      <div class="pe-2">
+        <button
+          mat-stroked-button
+          class="mat-stroked-custom"
+          color="primary"
+          (click)="reset()"
+        >
+          Limpiar filtros
+        </button>
+      </div>
+      <button
+        mat-stroked-button
+        class="mat-stroked-bg-custom"
+        color="primary"
+        (click)="searchByFilter()"
+      >
+        Buscar
+      </button>
+    </div>
+  </div>
+  <div class="row h-100">
+    <app-adm-user-grid></app-adm-user-grid>
+  </div>
+</div>

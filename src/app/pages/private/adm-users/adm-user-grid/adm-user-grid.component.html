@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-12">
+    <ag-grid-angular
+      style="height: 50vh"
+      class="ag-theme-alpine"
+      [gridOptions]="gridApplyCards"
+      [rowData]="gridData"
+    >
+    </ag-grid-angular>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 pt-2">
+    <p class="text-secondary">
+      Mostrando {{ displayGridCount }} de {{ totalCount }}
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 text-end">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item" [ngClass]="{ disabled: disabledPreviewBtn }">
+          <a class="page-link" (click)="previus()">Anterior</a>
+        </li>
+        <li class="page-item" [ngClass]="{ active: firstButton }">
+          <a class="page-link" (click)="changePage(1)">1</a>
+        </li>
+        <li class="page-item" [ngClass]="{ active: secondButton }">
+          <a class="page-link" (click)="changePage(2)">2</a>
+        </li>
+        <li class="page-item" [ngClass]="{ active: thirdButton }">
+          <a class="page-link" (click)="changePage(3)">3</a>
+        </li>
+        <li class="page-item" [ngClass]="{ active: fourthButton }">
+          <a class="page-link" (click)="changePage(4)">4</a>
+        </li>
+        <li class="page-item" [ngClass]="{ active: fiveButton }">
+          <a class="page-link" (click)="changePage(5)">5</a>
+        </li>
+        <li class="page-item" [ngClass]="{ disabled: disabledNextBtn }">
+          <a class="page-link" (click)="next()">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<main>
+  <div class="main-header">
+    <app-header></app-header>
+  </div>
+  <div class="main-content">
+    <mat-drawer-container class="h-100" autosize>
+      <mat-drawer #sidenav mode="side" class="sidebar" [(opened)]="isOpenMenu" *ngIf="isOpenMenu">
+        <app-sidebar></app-sidebar>
+      </mat-drawer>
+      <div class="content p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-container>
+  </div>
+</main>

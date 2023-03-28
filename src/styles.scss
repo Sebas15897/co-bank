@@ -2,12 +2,39 @@
 @import 'bootstrap-custom/_variables';
 @import 'bootstrap/scss/bootstrap';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-html,
-body {
-  height: 100%;
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:hover,
+.mat-expansion-panel-header.mat-expanded:focus {
+  mat-panel-title {
+    color: white;
+  }
+  .mat-expansion-panel-header-description,
+  .mat-expansion-indicator::after {
+    color: white;
+  }
+  background: $primary !important;
 }
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+.mat-stroked-custom {
+  color: $primary !important;
+  border-color: $primary !important;
+}
+
+.mat-stroked-bg-custom {
+  background-color: $primary !important;
+  border-color: $primary !important;
+  color: white !important;
+}
+
+.ag-header-cell-label {
+  justify-content: center;
+}
+
+.ag-theme-alpine {
+  --ag-header-height: 40px;
+  --ag-header-foreground-color: dark;
+  --ag-header-background-color:  #ededed;
 }
