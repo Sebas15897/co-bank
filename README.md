@@ -4,7 +4,7 @@
 
 - [Environment](#environment)
 - [Installation](#installation)
-- [Credentials](#Usuario para iniciar sesión)
+- [Credentials](#Usuario)
 - [Authors](#author)
 - [Tools](#Tools)
 - [Angular](#Angular)
