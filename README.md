@@ -32,7 +32,8 @@ Contraseña => 123456.
 - Firebase.
 - Ngxs Store.
 - Ngxs Pluggins.
-- Ag-grid angular.
+- AgGrid angular.
+- sweetalert2.
 
 #Angular
 - Para se proyecto se hizo uso de:
