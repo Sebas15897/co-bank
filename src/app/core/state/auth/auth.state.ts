@@ -69,14 +69,16 @@ export class AuthState {
   @Action(LogoutAction)
   LogoutAction(ctx: StateContext<AuthStateModel>) {
     ctx.dispatch(new ShowLoadingAction());
-    setTimeout(() => {
-      ctx.dispatch(new HideLoadingAction()).subscribe(() => {
-        this.sweetAlertHelper.createCustomAlert({
-          title: 'Sesión finalizada con éxito',
-          text: 'Esperamos que vuelva pronto',
-          icon: 'success',
+    this.authService.logout().then(() => {
+      setTimeout(() => {
+        ctx.dispatch(new HideLoadingAction()).subscribe(() => {
+          this.sweetAlertHelper.createCustomAlert({
+            title: 'Sesión finalizada con éxito',
+            text: 'Esperamos que vuelva pronto',
+            icon: 'success',
+          });
         });
-      });
-    }, 2000);
+      }, 2000);
+    });
   }
 }
