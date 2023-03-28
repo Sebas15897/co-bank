@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ng-nivelics": {
+      "hosting": {
+        "nivelics-app": [
+          "ng-nivelics"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ng-nivelics"
+  }
+}

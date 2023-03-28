@@ -106,8 +106,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "nivelics-app:build:production",
+            "firebaseProject": "ng-nivelics",
+            "firebaseHostingSite": "ng-nivelics"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
