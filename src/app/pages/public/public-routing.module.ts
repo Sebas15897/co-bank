@@ -8,8 +8,7 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadChildren: () =>
-          import('./login/login.module').then((m) => m.LoginModule),
+        loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
       },
     ],
     canActivate: [AuthPublicGuard],
@@ -18,11 +17,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'public/login',
     pathMatch: 'full',
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
+
 export class PublicRoutingModule {}

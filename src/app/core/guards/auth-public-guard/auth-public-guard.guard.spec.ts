@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthPublicGuard } from './auth-public-guard.guard';
+import { AuthPublicGuardGuard } from './auth-public-guard.guard';
 
 describe('AuthPublicGuardGuard', () => {
-  let guard: AuthPublicGuard;
+  let guard: AuthPublicGuardGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(AuthPublicGuard);
+    guard = TestBed.inject(AuthPublicGuardGuard);
   });
 
   it('should be created', () => {

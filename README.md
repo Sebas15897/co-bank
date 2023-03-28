@@ -1,4 +1,4 @@
-# Coink App Prueba de cargo - Desarrollador Angular
+# Nivelics - Desarrollador Angular
 
 ## Table of Content
 
@@ -12,7 +12,7 @@ Este proyecto se interpreta/prueba en Node `(version 16.19.0)`.
 
 ## Installation
 
-- Clonar este repositorio: `https://github.com/Sebas15897/Coink-App.git`.
+- Clonar este repositorio: `https://github.com/Sebas15897/nivelics-prueba.git`.
 - Instalar Node Modules: `npm install`.
 - Ejecutamos el proyecto: `npm start`.
 
