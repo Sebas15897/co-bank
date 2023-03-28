@@ -16,3 +16,9 @@ export interface ILocation {
   name: string;
   url: string;
 }
+
+export interface IUserAdd {
+  name: string;
+  type: string;
+  status: string;
+}

@@ -11,18 +11,18 @@ export interface IInfo {
 }
 
 export interface IUserResult {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: ILocation;
-  location: ILocation;
-  image: string;
-  episode: string[];
-  url: string;
-  created: Date;
+  id?: number;
+  name?: string;
+  status?: string;
+  species?: string;
+  type?: string;
+  gender?: string;
+  origin?: ILocation;
+  location?: ILocation;
+  image?: string;
+  episode?: string[];
+  url?: string;
+  created?: Date;
 }
 
 export interface ILocation {

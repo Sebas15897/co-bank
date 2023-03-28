@@ -42,7 +42,7 @@ export class AdmUserGridComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges() {}
 
   ngOnInit() {
-/*     this.store.dispatch(new GetUsersAction(this.currentPage)); */
+    this.store.dispatch(new GetUsersAction(this.currentPage));
     this.subscribeState();
   }
 
