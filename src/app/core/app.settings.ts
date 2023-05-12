@@ -19,7 +19,7 @@ export class AppSettings {
   }
 
   public app = {
-    name: 'Nivelics App',
+    name: 'Co Bank-App',
     email: 'nivelicsApp@mail.com'
   }
 }

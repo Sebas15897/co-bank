@@ -1,5 +1,5 @@
 {
-  "name": "ng-nivelics",
+  "name": "co-bank",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,7 @@
     "ag-grid-angular": "^29.0.0",
     "ag-grid-community": "^29.0.0",
     "ag-grid-enterprise": "^29.0.0",
+    "angular-cli-ghpages": "^1.0.6",
     "bootstrap": "^5.2.3",
     "moment": "^2.29.4",
     "ngx-spinner": "^15.0.1",
